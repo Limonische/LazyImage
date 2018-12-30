@@ -1,0 +1,12 @@
+doctype html
+html(lang="ru")
+	block head
+		include partials/head
+	body
+		block header
+			include partials/header
+		#wrapper
+			block content
+				| Default content
+		block footer
+			include partials/footer

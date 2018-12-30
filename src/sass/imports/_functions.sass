@@ -1,0 +1,11 @@
+// Функции
+
+// Удаление единиц измерения
+@function strip-unit($value)
+	@return $value / ($value * 0 + 1)
+
+// Получение значения из карты любой глубины
+@function get($map, $keys...)
+	@each $key in $keys
+		$map: map-get($map, $key)
+	@return $map
