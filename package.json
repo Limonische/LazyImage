@@ -4,8 +4,8 @@
     "description": "template for future projects",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack-dev-server --mode=development --config webpack.config.js --progress",
-        "prod": "webpack --mode=production --config webpack.config.js --progress"
+        "dev": "webpack-dev-server --mode=development --progress",
+        "prod": "webpack --mode=production --progress"
     },
     "author": "Nikita Gulis",
     "license": "ISC",
