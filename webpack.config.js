@@ -35,7 +35,7 @@ module.exports = (env, argv) => merge(
                 }),
                 new OptimizeCSSAssetsPlugin({})
             ],
-            // Разбтение файлов
+            // Разбиение файлов
             splitChunks: {
                 chunks: 'all',
                 minSize: 0
