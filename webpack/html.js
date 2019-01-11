@@ -20,7 +20,12 @@ function generateHtmlPlugins(templateDir) {
                 __dirname,
                 `${templateDir}/${name}.${extension}`
             ),
-            inject: 'body'
+            inject: 'body',
+            minify: {
+                removeComments: true,
+                removeScriptTypeAttributes: true,
+                useShortDoctype: true
+            }
         });
     });
 }
