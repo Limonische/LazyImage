@@ -8,6 +8,7 @@ const images = require('./images');
 const fonts = require('./fonts');
 const js = require('./js');
 const html = require('./html');
+const workbox = require('./workbox');
 
 // Сращивание всех общих модулей
 module.exports = (env, argv) => merge(
@@ -16,5 +17,6 @@ module.exports = (env, argv) => merge(
     images,
     fonts,
     js,
-    html
+    html,
+    workbox
 );

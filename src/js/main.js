@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('load', () => {
         // После загрузки страницы
+
+        // Ленивая загрузка изображений
         lazyLoad();
+
+        // Регистрация Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
     });
 });
