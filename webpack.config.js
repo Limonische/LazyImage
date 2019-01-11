@@ -17,6 +17,7 @@ module.exports = (env, argv) => merge(
         // Выходные файлы
         output: {
             filename: './js/[name].bundle.js',
+            chunkFilename: './js/[name].bundle.js',
             path: path.resolve(__dirname, 'dist')
         },
         // Избавление от лишней статистики в консоли
@@ -37,8 +38,21 @@ module.exports = (env, argv) => merge(
             ],
             // Разбиение файлов
             splitChunks: {
-                chunks: 'all',
-                minSize: 0
+                cacheGroups: {
+                    commons: {
+                        chunks: 'initial',
+                        minChunks: 2,
+                        maxInitialRequests: 5,
+                        minSize: 0
+                    },
+                    vendor: {
+                        test: /node_modules/,
+                        chunks: 'initial',
+                        name: 'vendor',
+                        priority: 10,
+                        enforce: true
+                    }
+                }
             }
         },
         plugins: [new CleanWebpackPlugin(['dist/*'])]
