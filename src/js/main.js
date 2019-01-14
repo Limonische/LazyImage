@@ -15,7 +15,14 @@ objectFitImages();
 window.addEventListener('load', () => {
     // Регистрация Service Worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js');
+        navigator.serviceWorker
+            .register('service-worker.js')
+            .then(registration => {
+                console.log('Service worker registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('Service worker registration failed: ', registrationError);
+            });
     }
 
     // Ленивая загрузка изображений
