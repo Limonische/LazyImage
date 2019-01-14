@@ -15,7 +15,7 @@
         "@babel/plugin-proposal-private-methods": "^7.2.3",
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
         "@babel/preset-env": "^7.2.3",
-        "autoprefixer": "^9.4.4",
+        "autoprefixer": "^9.4.5",
         "babel-loader": "^8.0.5",
         "browserslist": "^4.4.0",
         "clean-webpack-plugin": "^1.0.0",
