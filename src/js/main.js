@@ -7,7 +7,7 @@ import '../sass/styles.sass';
 // import objectFitImages from 'object-fit-images';
 
 // Модули
-import lazyLoadImages from './imports/lazyLoad';
+// import lazyLoadImages from './imports/lazyLoad';
 
 // Object-fit для браузеров без его поддержки
 // objectFitImages();
@@ -26,5 +26,5 @@ window.addEventListener('load', () => {
     // }
 
     // Ленивая загрузка изображений
-    lazyLoadImages();
+    // lazyLoadImages();
 });
