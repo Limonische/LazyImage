@@ -1,22 +1,19 @@
 'use strict';
 
 // Ленивая загрузка изображений
-const lazyLoad = () => {
-    // Замена srcset во всех картинках страницы
-    [].forEach.call(document.querySelectorAll('img[data-srcset]'), img => {
-        img.setAttribute('srcset', img.getAttribute('data-srcset'));
-        img.addEventListener('load', () => {
-            img.removeAttribute('data-srcset');
-        });
-    });
+const lazyLoadImages = () => {
+    let lazyImages = [...document.querySelectorAll('img[data-src]')];
 
-    // Замена src во всех картинках страницы
-    [].forEach.call(document.querySelectorAll('img[data-src]'), img => {
-        img.setAttribute('src', img.getAttribute('data-src'));
-        img.addEventListener('load', () => {
-            img.removeAttribute('data-src');
-        });
+    lazyImages.forEach(lazyImage => {
+        const dataSrcset = lazyImage.getAttribute('data-srcset');
+        const dataSrc = lazyImage.getAttribute('data-src');
+
+        if (dataSrcset) lazyImage.srcset = dataSrcset;
+
+        lazyImage.src = dataSrc;
+        lazyImage.removeAttribute('data-srcset');
+        lazyImage.removeAttribute('data-src');
     });
 };
 
-export default lazyLoad;
+export { lazyLoadImages };
