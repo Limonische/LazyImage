@@ -16,7 +16,7 @@ import { lazyLoadImages } from './imports/lazyLoad';
 lazyLoadImages();
 
 // window.addEventListener('load', () => {
-//     Регистрация Service Worker
+//     // Регистрация Service Worker
 //     if ('serviceWorker' in navigator) {
 //         navigator.serviceWorker
 //             .register('service-worker.js')
