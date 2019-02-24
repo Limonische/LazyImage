@@ -21,6 +21,8 @@ module.exports = api => {
 
     return {
         presets,
-        plugins
+        plugins,
+        sourceMaps: true,
+        retainLines: true
     };
 };

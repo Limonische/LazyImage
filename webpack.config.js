@@ -32,7 +32,8 @@ module.exports = (env, argv) => merge(
             minimizer: [
                 new UglifyJsPlugin({
                     cache: true,
-                    parallel: true
+                    parallel: true,
+                    sourceMap: argv.mode === 'development' ? true : false
                 }),
                 new OptimizeCSSAssetsPlugin({})
             ],
@@ -55,6 +56,7 @@ module.exports = (env, argv) => merge(
                 }
             }
         },
+        devtool: argv.mode === 'development' ? 'source-map' : false,
         plugins: [new CleanWebpackPlugin(['dist/*'])]
     },
     // Приращение общего модуля

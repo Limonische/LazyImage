@@ -11,9 +11,19 @@ module.exports = (env, argv) => {
                     use: [
                         // Смена loader-а в зависимости от режима
                         argv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
-                        'css-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
                         'postcss-loader',
-                        'sass-loader'
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
                     ]
                 }
             ]
