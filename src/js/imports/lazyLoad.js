@@ -2,18 +2,45 @@
 
 // Ленивая загрузка изображений
 const lazyLoadImages = () => {
-    let lazyImages = [...document.querySelectorAll('img[data-src]')];
+    let lazyImages = [...document.querySelectorAll('img.lazy')];
+    let active = false;
 
-    lazyImages.forEach(lazyImage => {
-        const dataSrcset = lazyImage.getAttribute('data-srcset');
-        const dataSrc = lazyImage.getAttribute('data-src');
+    const lazyLoad = () => {
+        if (active === false) {
+            active = true;
 
-        if (dataSrcset) lazyImage.srcset = dataSrcset;
+            setTimeout(() => {
+                for (let lazyImage of lazyImages) {
+                    let { top, bottom } = lazyImage.getBoundingClientRect();
+                    let { display } = getComputedStyle(lazyImage);
 
-        lazyImage.src = dataSrc;
-        lazyImage.removeAttribute('data-srcset');
-        lazyImage.removeAttribute('data-src');
-    });
+                    if (top <= window.innerHeight && bottom >= 0 && display !== 'none') {
+                        let src = lazyImage.getAttribute('data-src');
+                        let srcSet = lazyImage.getAttribute('data-srcset');
+
+                        lazyImage.src = src ? src : '';
+                        lazyImage.srcset = srcSet ? srcSet : '';
+                        lazyImage.classList.remove('lazy');
+
+                        lazyImages = lazyImages.filter((image) => image !== lazyImage);
+
+                        if (lazyImages.length === 0) {
+                            document.removeEventListener('scroll', lazyLoad);
+                            window.removeEventListener('resize', lazyLoad);
+                            window.removeEventListener('orientationchange', lazyLoad);
+                        }
+                    }
+                }
+
+                active = false;
+            }, 200);
+        }
+    };
+
+    lazyLoad();
+    document.addEventListener('scroll', lazyLoad);
+    window.addEventListener('resize', lazyLoad);
+    window.addEventListener('orientationchange', lazyLoad);
 };
 
 export { lazyLoadImages };
