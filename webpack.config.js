@@ -57,7 +57,7 @@ module.exports = (env, argv) => merge(
             }
         },
         devtool: argv.mode === 'development' ? 'source-map' : false,
-        plugins: [new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: 'dist/*'})]
+        plugins: [new CleanWebpackPlugin()]
     },
     // Приращение общего модуля
     common(env, argv),
