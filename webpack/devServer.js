@@ -22,33 +22,34 @@ function reloadHtml() {
 }
 
 // Конфигурация локального сервера для разработки
-module.exports = {
-    devServer: {
-        // Необходимо для перезагрузки html с HMR
-        before(app, server) {
-            devServer = server;
+module.exports = (env, argv) => {
+    return {
+        devServer: {
+            // Необходимо для перезагрузки html с HMR
+            before(app, server) {
+                devServer = server;
+            },
+            // Сжатие
+            compress: true,
+            // Адрес хоста
+            host: argv.share ? '0.0.0.0' : 'localhost',
+            // Открытие браузера после компиляции
+            open: true,
+            // Порт
+            port: 3000,
+            // HMR
+            hot: true,
+            // Выключение проверки хоста
+            disableHostCheck: true,
+            // Избавление от лишней статистики
+            stats: {
+                entrypoints: false,
+                children: false,
+                warnings: false,
+                modules: false
+            }
         },
-        // Сжатие
-        compress: true,
-        // Адрес хоста
-        // Сменить на 0.0.0.0 для доступа с других устройств
-        host: 'localhost',
-        // Открытие браузера после компиляции
-        open: true,
-        // Порт
-        port: 3000,
-        // HMR
-        hot: true,
-        // Выключение проверки хоста
-        disableHostCheck: true,
-        // Избавление от лишней статистики
-        stats: {
-            entrypoints: false,
-            children: false,
-            warnings: false,
-            modules: false
-        }
-    },
-    // Плагин для HMR
-    plugins: [new webpack.HotModuleReplacementPlugin(), reloadHtml]
+        // Плагин для HMR
+        plugins: [new webpack.HotModuleReplacementPlugin(), reloadHtml]
+    }
 };

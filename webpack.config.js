@@ -62,5 +62,5 @@ module.exports = (env, argv) => merge(
     // Приращение общего модуля
     common(env, argv),
     // Приращение модулей в зависимости от режима
-    argv.mode === 'development' ? devServer : null
+    argv.mode === 'development' ? devServer(env, argv) : null
 );

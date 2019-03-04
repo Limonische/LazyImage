@@ -26,5 +26,13 @@ npm run prod
 
 Production code will appear in dist folder
 
+If you want to open your project on multiple devices use the following command
+
+```npm
+npm run share
+```
+
+This command will open dev server on port 0.0.0.0
+
 ## License
 [ISC](https://choosealicense.com/licenses/isc/)
