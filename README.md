@@ -12,11 +12,15 @@ npm i
 
 ## Usage
 
+### Dev server
+
 To start dev server use the following command
 
 ```npm
 npm run dev
 ```
+
+### Production
 
 To make a production version run the following command
 
@@ -25,6 +29,8 @@ npm run prod
 ```
 
 Production code will appear in dist folder
+
+### Shared dev server
 
 If you want to open your project on multiple devices use the following command
 
