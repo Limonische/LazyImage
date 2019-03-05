@@ -5,7 +5,11 @@ html(lang="ru")
 	body
 		block header
 			include partials/header
-		main#wrapper
-			block content
+		#wrapper
+			block beforeMainContent
+			main#main
+				block mainContent
+			block afterMainContent
 		block footer
 			include partials/footer
+		block bodyScripts
