@@ -1,4 +1,4 @@
-// JavaScript-модуль
+// JavaScript module
 
 module.exports = {
     module: {

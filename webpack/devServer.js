@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 let devServer;
 
-// Перезагрузка при изменении html для использования с HotModuleReplacement
+// Reload on html change for Hot Module Replacement
 function reloadHtml() {
     const cache = {};
     const plugin = { name: 'CustomHtmlReloadPlugin' };
@@ -21,27 +21,25 @@ function reloadHtml() {
     });
 }
 
-// Конфигурация локального сервера для разработки
+// Local development server configuration
 module.exports = (env, argv) => {
     return {
         devServer: {
-            // Необходимо для перезагрузки html с HMR
+            // Is needed for html reload with HMR
             before(app, server) {
                 devServer = server;
             },
-            // Сжатие
+            // Compression
             compress: true,
-            // Адрес хоста
+            // Change host name depending on mode
             host: argv.share ? '0.0.0.0' : 'localhost',
-            // Открытие браузера после компиляции
+            // Open default browser after compilation
             open: true,
-            // Порт
             port: 3000,
-            // HMR
+            // Hot Module Replacement
             hot: true,
-            // Выключение проверки хоста
             disableHostCheck: true,
-            // Избавление от лишней статистики
+            // Remove unnecessary stats
             stats: {
                 entrypoints: false,
                 children: false,
@@ -49,7 +47,6 @@ module.exports = (env, argv) => {
                 modules: false
             }
         },
-        // Плагин для HMR
         plugins: [new webpack.HotModuleReplacementPlugin(), reloadHtml]
     }
 };

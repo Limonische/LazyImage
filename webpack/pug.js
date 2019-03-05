@@ -1,4 +1,4 @@
-// pug-модуль
+// pug module
 
 module.exports = {
     module: {

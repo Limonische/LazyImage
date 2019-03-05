@@ -1,4 +1,4 @@
-// Модуль css, sass и scss
+// Module for sass, scss and css
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.(sa|sc|c)ss$/,
                     use: [
-                        // Смена loader-а в зависимости от режима
+                        // Change loader depending on mode
                         argv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                         {
                             loader: 'css-loader',
@@ -34,7 +34,7 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
-            // Вынос стилей в отдельные файлы для production
+            // Extract css into separate files for production
             new MiniCssExtractPlugin({
                 filename: './css/[name].css'
             })

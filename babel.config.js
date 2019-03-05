@@ -1,4 +1,4 @@
-// Конфигурация Babel
+// Babel configuration
 
 module.exports = api => {
     api.cache(true);
@@ -8,7 +8,7 @@ module.exports = api => {
             '@babel/preset-env',
             {
                 modules: false,
-                // Автоматическая иньекция только нужных полифилов
+                // Auto-inject only those polyfills that are needed
                 useBuiltIns: 'usage'
             }
         ]

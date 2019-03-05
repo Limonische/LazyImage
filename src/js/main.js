@@ -1,22 +1,22 @@
 'use strict';
 
-// Стили
+// Styles
 import '../sass/styles.sass';
 
-// Библиотеки
+// Libraries
 // import objectFitImages from 'object-fit-images';
 
-// Модули
+// Modules
 import { lazyLoadImages } from './imports/lazyLoad';
 
-// Object-fit для браузеров без его поддержки
+// object-fit for browsers without support
 // objectFitImages();
 
-// Ленивая загрузка изображений
+// Lazy loading for images
 lazyLoadImages();
 
 // window.addEventListener('load', () => {
-//     // Регистрация Service Worker
+//     // Register Service Worker
 //     if ('serviceWorker' in navigator) {
 //         navigator.serviceWorker
 //             .register('service-worker.js')

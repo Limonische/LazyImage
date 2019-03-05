@@ -1,4 +1,4 @@
-// Модуль Workbox для Service Worker
+// Workbox module for Service Worker
 
 const { GenerateSW } = require('workbox-webpack-plugin');
 

@@ -1,11 +1,11 @@
-// html-модуль
+// HTML module
 
 const fs = require('fs');
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// Генерация html-страниц из pug-файлов
+// Generate HTML pages from .pug files
 function generateHtmlPlugins(templateDir) {
     const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
 
@@ -32,7 +32,7 @@ function generateHtmlPlugins(templateDir) {
 
 const htmlPlugins = generateHtmlPlugins('../src/pug/views');
 
-// Присоединение всех сгенерированных инстансов HtmlWebpackPlugin к плагинам
+// Concatenate all instanses of HtmlWebpackPlugin to plugins
 module.exports = {
     plugins: [].concat(htmlPlugins)
 };

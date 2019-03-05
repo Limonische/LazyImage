@@ -10,17 +10,17 @@ const devServer = require('./webpack/devServer');
 
 module.exports = (env, argv) => merge(
     {
-        // Входные файлы
+        // Entry JavaScript files
         entry: {
             main: './src/js/main.js'
         },
-        // Выходные файлы
+        // Output JavaScript files
         output: {
             filename: './js/[name].bundle.js',
             chunkFilename: './js/[name].bundle.js',
             path: path.resolve(__dirname, 'dist')
         },
-        // Избавление от лишней статистики в консоли
+        // Remove unnecessary stats
         stats: {
             entrypoints: false,
             children: false,
@@ -28,7 +28,7 @@ module.exports = (env, argv) => merge(
             modules: false
         },
         optimization: {
-            // Плагины для сжатия CSS и JavaScript
+            // Plugins for CSS and JavaScript minification
             minimizer: [
                 new UglifyJsPlugin({
                     cache: true,
@@ -37,7 +37,7 @@ module.exports = (env, argv) => merge(
                 }),
                 new OptimizeCSSAssetsPlugin({})
             ],
-            // Разбиение файлов
+            // Split JavaScript files into separate chunks
             splitChunks: {
                 cacheGroups: {
                     commons: {
@@ -59,8 +59,8 @@ module.exports = (env, argv) => merge(
         devtool: argv.mode === 'development' ? 'source-map' : false,
         plugins: [new CleanWebpackPlugin()]
     },
-    // Приращение общего модуля
+    // Merge common module
     common(env, argv),
-    // Приращение модулей в зависимости от режима
+    // Merge other modules depending on mode
     argv.mode === 'development' ? devServer(env, argv) : null
 );

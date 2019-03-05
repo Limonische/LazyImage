@@ -1,6 +1,6 @@
 'use strict';
 
-// Ленивая загрузка изображений
+// Lazy loading for images
 const lazyLoadImages = () => {
     let lazyImages = [...document.querySelectorAll('img.lazy')];
     let active = false;

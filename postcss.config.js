@@ -1,4 +1,4 @@
-// Конфигурация PostCSS
+// PostCSS configuration
 
 const autoprefixer = require('autoprefixer');
 

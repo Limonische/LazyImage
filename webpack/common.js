@@ -1,4 +1,4 @@
-// Общий модуль для development и production
+// Common module for development and production
 
 const merge = require('webpack-merge');
 
@@ -10,7 +10,7 @@ const js = require('./js');
 const html = require('./html');
 const workbox = require('./workbox');
 
-// Сращивание всех общих модулей
+// Merge all common modules
 module.exports = (env, argv) => merge(
     sass(env, argv),
     pug,

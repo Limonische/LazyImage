@@ -1,4 +1,4 @@
-// Модуль шрифтов
+// Fonts module
 
 module.exports = {
     module: {

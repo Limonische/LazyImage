@@ -1,4 +1,4 @@
-// Модуль картинок
+// Images module
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -21,7 +21,7 @@ module.exports = {
         ]
     },
     plugins: [
-        // Переносим картинки из папки src/images в dist/images
+        // Move images from src/images to dist/images
         new CopyWebpackPlugin([
             {
                 from: './src/images',
