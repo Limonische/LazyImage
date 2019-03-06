@@ -8,6 +8,7 @@ module.exports = {
     rules: {
         indent: ['error', 4],
         'arrow-parens': ['error', 'as-needed'],
-        'no-param-reassign': 0
+        'no-param-reassign': 0,
+        'linebreak-style': 0
     }
 }
