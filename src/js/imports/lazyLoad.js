@@ -1,5 +1,3 @@
-'use strict';
-
 // Lazy loading for images
 const lazyLoadImages = () => {
     let lazyImages = [...document.querySelectorAll('img.lazy')];
@@ -10,19 +8,19 @@ const lazyLoadImages = () => {
             active = true;
 
             setTimeout(() => {
-                for (let lazyImage of lazyImages) {
-                    let { top, bottom } = lazyImage.getBoundingClientRect();
-                    let { display } = getComputedStyle(lazyImage);
+                lazyImages.forEach(lazyImage => {
+                    const { top, bottom } = lazyImage.getBoundingClientRect();
+                    const { display } = getComputedStyle(lazyImage);
 
                     if (top <= window.innerHeight && bottom >= 0 && display !== 'none') {
-                        let src = lazyImage.getAttribute('data-src');
-                        let srcSet = lazyImage.getAttribute('data-srcset');
+                        const src = lazyImage.getAttribute('data-src');
+                        const srcSet = lazyImage.getAttribute('data-srcset');
 
-                        lazyImage.src = src ? src : '';
-                        lazyImage.srcset = srcSet ? srcSet : '';
+                        lazyImage.src = src || '';
+                        lazyImage.srcset = srcSet || '';
                         lazyImage.classList.remove('lazy');
 
-                        lazyImages = lazyImages.filter((image) => image !== lazyImage);
+                        lazyImages = lazyImages.filter(image => image !== lazyImage);
 
                         if (lazyImages.length === 0) {
                             document.removeEventListener('scroll', lazyLoad);
@@ -30,7 +28,7 @@ const lazyLoadImages = () => {
                             window.removeEventListener('orientationchange', lazyLoad);
                         }
                     }
-                }
+                });
 
                 active = false;
             }, 200);
@@ -43,4 +41,4 @@ const lazyLoadImages = () => {
     window.addEventListener('orientationchange', lazyLoad);
 };
 
-export { lazyLoadImages };
+export default lazyLoadImages;

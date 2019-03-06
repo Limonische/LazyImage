@@ -1,5 +1,3 @@
-'use strict';
-
 // Styles
 import '../sass/styles.sass';
 
@@ -7,7 +5,7 @@ import '../sass/styles.sass';
 // import objectFitImages from 'object-fit-images';
 
 // Modules
-import { lazyLoadImages } from './imports/lazyLoad';
+import lazyLoadImages from './imports/lazyLoad';
 
 // object-fit for browsers without support
 // objectFitImages();
