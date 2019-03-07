@@ -1,0 +1,5 @@
+# List of ignored files and directories for git
+
+.vscode
+node_modules
+dist
