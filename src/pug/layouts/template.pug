@@ -3,13 +3,17 @@ html(lang="ru")
 	block head
 		include partials/head
 	body
+		block beforeHeader
 		block header
 			include partials/header
+		block afterHeader
 		#wrapper
 			block beforeMainContent
 			main#main
 				block mainContent
 			block afterMainContent
+		block beforeFooter
 		block footer
 			include partials/footer
+		block afterFooter
 		block bodyScripts
