@@ -14,7 +14,7 @@ npm i
 
 ### Dev server
 
-To start dev server use the following command
+To start dev server run the following command
 
 ```npm
 npm run dev
@@ -32,7 +32,7 @@ Production code will appear in dist folder
 
 ### Shared dev server
 
-If you want to open your project on multiple devices use the following command
+If you want to open your project on multiple devices run the following command
 
 ```npm
 npm run share
