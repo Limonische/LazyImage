@@ -16,16 +16,13 @@ function generateHtmlPlugins(templateDir) {
 
         return new HtmlWebpackPlugin({
             filename: `${name}.html`,
-            template: path.resolve(
-                __dirname,
-                `${templateDir}/${name}.${extension}`
-            ),
+            template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
             inject: 'body',
             minify: {
                 removeComments: true,
                 removeScriptTypeAttributes: true,
-                useShortDoctype: true
-            }
+                useShortDoctype: true,
+            },
         });
     });
 }
@@ -34,5 +31,5 @@ const htmlPlugins = generateHtmlPlugins('../src/pug/views');
 
 // Concatenate all instanses of HtmlWebpackPlugin to plugins
 module.exports = {
-    plugins: [].concat(htmlPlugins)
+    plugins: [].concat(htmlPlugins),
 };

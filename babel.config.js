@@ -9,20 +9,20 @@ module.exports = api => {
             {
                 modules: false,
                 // Auto-inject only those polyfills that are needed
-                useBuiltIns: 'usage'
-            }
-        ]
+                useBuiltIns: 'usage',
+            },
+        ],
     ];
     const plugins = [
         '@babel/plugin-proposal-class-properties',
         '@babel/plugin-proposal-private-methods',
-        '@babel/plugin-syntax-dynamic-import'
+        '@babel/plugin-syntax-dynamic-import',
     ];
 
     return {
         presets,
         plugins,
         sourceMaps: true,
-        retainLines: true
+        retainLines: true,
     };
 };

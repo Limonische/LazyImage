@@ -13,20 +13,20 @@ module.exports = {
                         options: {
                             name: '[name].[ext]',
                             outputPath: 'images/',
-                            publicPath: '../images'
-                        }
-                    }
-                ]
-            }
-        ]
+                            publicPath: '../images',
+                        },
+                    },
+                ],
+            },
+        ],
     },
     plugins: [
         // Move images from src/images to dist/images
         new CopyWebpackPlugin([
             {
                 from: './src/images',
-                to: './images'
-            }
-        ])
-    ]
+                to: './images',
+            },
+        ]),
+    ],
 };

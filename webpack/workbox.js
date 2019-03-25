@@ -7,7 +7,7 @@ module.exports = {
         new GenerateSW({
             clientsClaim: true,
             skipWaiting: true,
-            importsDirectory: 'workbox-assets'
-        })
-    ]
+            importsDirectory: 'workbox-assets',
+        }),
+    ],
 };

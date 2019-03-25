@@ -11,12 +11,4 @@ const html = require('./html');
 const workbox = require('./workbox');
 
 // Merge all common modules
-module.exports = (env, argv) => merge(
-    sass(env, argv),
-    pug,
-    images,
-    fonts,
-    js,
-    html,
-    workbox
-);
+module.exports = (env, argv) => merge(sass(env, argv), pug, images, fonts, js, html, workbox);

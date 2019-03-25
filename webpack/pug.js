@@ -9,11 +9,11 @@ module.exports = {
                     {
                         loader: 'pug-loader',
                         options: {
-                            pretty: true
-                        }
-                    }
-                ]
-            }
-        ]
-    }
+                            pretty: true,
+                        },
+                    },
+                ],
+            },
+        ],
+    },
 };

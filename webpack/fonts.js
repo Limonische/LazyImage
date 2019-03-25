@@ -11,11 +11,11 @@ module.exports = {
                         options: {
                             name: './[name]/[name].[ext]',
                             outputPath: 'fonts/',
-                            publicPath: '../fonts'
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-}
+                            publicPath: '../fonts',
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+};
