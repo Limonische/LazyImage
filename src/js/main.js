@@ -10,5 +10,7 @@ import lazyLoadImages from './imports/lazyLoad';
 // object-fit for browsers without support
 // objectFitImages();
 
-// Lazy loading for images
-lazyLoadImages();
+window.addEventListener('load', () => {
+    // Lazy loading for images
+    lazyLoadImages();
+});

@@ -10,9 +10,9 @@ const lazyLoadImages = () => {
             setTimeout(() => {
                 lazyImages.forEach(lazyImage => {
                     const { top, bottom } = lazyImage.getBoundingClientRect();
-                    const { display } = getComputedStyle(lazyImage);
+                    const { display, visibility } = getComputedStyle(lazyImage);
 
-                    if (top <= window.innerHeight && bottom >= 0 && display !== 'none') {
+                    if (top <= window.innerHeight && bottom >= 0 && display !== 'none' && visibility !== 'hidden') {
                         const src = lazyImage.getAttribute('data-src');
                         const srcSet = lazyImage.getAttribute('data-srcset');
 
