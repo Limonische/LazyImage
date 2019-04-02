@@ -11,11 +11,11 @@
     "author": "Nikita Gulis",
     "license": "ISC",
     "devDependencies": {
-        "@babel/core": "^7.4.0",
+        "@babel/core": "^7.4.3",
         "@babel/plugin-proposal-class-properties": "^7.4.0",
-        "@babel/plugin-proposal-private-methods": "^7.4.0",
+        "@babel/plugin-proposal-private-methods": "^7.4.3",
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-        "@babel/preset-env": "^7.4.2",
+        "@babel/preset-env": "^7.4.3",
         "autoprefixer": "^9.5.0",
         "babel-eslint": "^10.0.1",
         "babel-loader": "^8.0.5",
@@ -45,7 +45,7 @@
         "workbox-webpack-plugin": "^4.1.1"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.4.0",
+        "@babel/polyfill": "^7.4.3",
         "object-fit-images": "^3.2.4"
     }
 }
