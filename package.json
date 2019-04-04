@@ -45,7 +45,7 @@
         "workbox-webpack-plugin": "^4.2.0"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.4.3",
+        "core-js": "^3.0.0",
         "object-fit-images": "^3.2.4"
     }
 }

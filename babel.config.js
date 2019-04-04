@@ -10,6 +10,7 @@ module.exports = api => {
                 modules: false,
                 // Auto-inject only those polyfills that are needed
                 useBuiltIns: 'usage',
+                corejs: 3,
             },
         ],
     ];
