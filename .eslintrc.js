@@ -11,5 +11,7 @@ module.exports = {
         'arrow-parens': ['error', 'as-needed'],
         'no-param-reassign': 0,
         'linebreak-style': 0,
+        'no-restricted-syntax': 0,
+        'no-plusplus': 0,
     },
 };
