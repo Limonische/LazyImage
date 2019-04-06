@@ -36,6 +36,7 @@ const lazyLoadImages = async () => {
 
         requestIdleCallback(() => {
             loadLazyImage(lazyImage);
+            lazyImageObserver.unobserve(lazyImage);
         });
     });
 };
