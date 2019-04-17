@@ -1,48 +1,29 @@
-// Lazy loading for images
 const lazyLoadImages = async () => {
-    const lazyImages = [...document.querySelectorAll('img.lazy')];
-
-    // Load selected image
-    const loadLazyImage = lazyImage => {
-        const { src, srcset } = lazyImage.dataset;
-
-        lazyImage.src = src || '';
-        lazyImage.srcset = srcset || '';
-        lazyImage.classList.remove('lazy');
-    };
-
-    // Check for IntersectionObserver support and load polyfill if needed
-    if (!('IntersectionObserver' in window)
+    if (
+        !('IntersectionObserver' in window)
         || !('IntersectionObserverEntry' in window)
-        || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
+        || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)
+    ) {
         await import(/* webpackChunkName: 'intersection-observer' */ 'intersection-observer');
     }
 
-    // Create observer for lazy images
-    const lazyImageObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const lazyImage = entry.target;
-
-                loadLazyImage(lazyImage);
-                lazyImageObserver.unobserve(lazyImage);
-            }
-        });
-    });
-
-    // Check for requestIdleCallback support and load polyfill if needed
     if (!('requestIdleCallback' in window)) {
         await import(/* webpackChunkName: 'request-idle-callback' */ 'requestidlecallback-polyfill');
     }
 
-    lazyImages.forEach(lazyImage => {
-        // Observe lazy images
-        lazyImageObserver.observe(lazyImage);
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.visible = entry.isIntersecting;
+        });
+    });
 
-        // Load images when browser is free
+    const lazyImages = [...document.querySelectorAll('lhm-lazy-image')];
+
+    lazyImages.forEach(image => {
+        io.observe(image);
+
         requestIdleCallback(() => {
-            loadLazyImage(lazyImage);
-            lazyImageObserver.unobserve(lazyImage);
+            image.visible = true;
         });
     });
 };
