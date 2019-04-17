@@ -66,6 +66,7 @@ class LazyImage extends HTMLElement {
             break;
         case 'image-class':
             this.image.className = newValue;
+            break;
         case 'width':
             this.style.width = newValue;
             break;
