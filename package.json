@@ -1,7 +1,7 @@
 {
-    "name": "template",
+    "name": "lazyimage",
     "version": "1.0.0",
-    "description": "template for future projects",
+    "description": "LazyImage custom element",
     "main": "index.js",
     "scripts": {
         "dev": "webpack-dev-server --mode=development --progress",
