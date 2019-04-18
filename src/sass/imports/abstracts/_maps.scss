@@ -7,6 +7,16 @@ $colors: (
     ),
     black: (
         1000: hsl(0, 0%, 0%)
+    ),
+    gray: (
+        1000: hsl(0, 0%, 15%)
+    )
+);
+
+$layout-colors: (
+    image-loader: (
+        background: get($colors, gray, 1000),
+        spinner: get($colors, white, 1000)
     )
 );
 

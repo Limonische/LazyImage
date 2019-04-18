@@ -1,0 +1,16 @@
+.image-loader
+    background-color: get($layout-colors, image-loader, background)
+    height: 100%
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    &:before
+        content: ''
+        display: block
+        height: 2em
+        width: 2em
+        border: 2px solid get($layout-colors, image-loader, spinner)
+        border-radius: 50%
+        border-right-color: transparent
+        animation: spin 1s linear infinite
