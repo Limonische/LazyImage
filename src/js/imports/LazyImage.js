@@ -14,7 +14,7 @@ class LazyImage extends HTMLElement {
     wrapper = document.createElement('div');
 
     static get observedAttributes() {
-        return ['srcset', 'src', 'sizes', 'alt', 'image-class', 'width', 'height', 'fit', 'position'];
+        return ['srcset', 'src', 'sizes', 'alt', 'image-class', 'image-id', 'width', 'height', 'fit', 'position'];
     }
 
     constructor() {
@@ -67,6 +67,9 @@ class LazyImage extends HTMLElement {
         case 'image-class':
             this.image.className = newValue;
             break;
+        case 'image-id':
+            this.image.id = newValue;
+            break;
         case 'width':
             this.style.width = newValue;
             break;
@@ -94,6 +97,10 @@ class LazyImage extends HTMLElement {
         this.hideWrapper();
     }
 
+    onWrapperTransitionEnd = () => {
+        this.wrapper.style.display = 'none';
+    }
+
     wrap() {
         this.wrapper.innerHTML = this.innerHTML;
         this.innerHTML = '';
@@ -119,11 +126,16 @@ class LazyImage extends HTMLElement {
 
     hideWrapper() {
         setTimeout(() => {
-            if (this.loaded) this.wrapper.style.opacity = 0;
+            if (this.loaded) {
+                this.wrapper.style.opacity = 0;
+                this.wrapper.addEventListener('transitionend', this.onWrapperTransitionEnd, { once: true });
+            }
         }, 100);
     }
 
     showWrapper() {
+        this.wrapper.style.display = 'block';
+
         setTimeout(() => {
             if (!this.loaded) this.wrapper.style.opacity = 1;
         }, 100);
