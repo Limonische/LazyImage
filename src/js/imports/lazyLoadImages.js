@@ -1,15 +1,23 @@
 const lazyLoadImages = async () => {
+    const polyfills = [];
+
     if (
         !('IntersectionObserver' in window)
         || !('IntersectionObserverEntry' in window)
         || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)
     ) {
-        await import(/* webpackChunkName: 'intersection-observer' */ 'intersection-observer');
+        const intersectionObserverPolyfill = import(/* webpackChunkName: 'intersection-observer' */ 'intersection-observer');
+
+        polyfills.push(intersectionObserverPolyfill);
     }
 
     if (!('requestIdleCallback' in window)) {
-        await import(/* webpackChunkName: 'request-idle-callback' */ 'requestidlecallback-polyfill');
+        const requestIdleCallbackPolyfill = import(/* webpackChunkName: 'request-idle-callback' */ 'requestidlecallback-polyfill');
+
+        polyfills.push(requestIdleCallbackPolyfill);
     }
+
+    await Promise.all(polyfills);
 
     const io = new IntersectionObserver(entries => {
         entries.forEach(entry => {
